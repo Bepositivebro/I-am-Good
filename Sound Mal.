@@ -1,0 +1,49 @@
+PLAY SOUND 
+
+
+
+
+
+
+#include "DigiKeyboard.h"
+
+void setup() {
+}
+
+void loop() {
+
+  DigiKeyboard.sendKeyStroke(0);
+  DigiKeyboard.delay(1000);
+
+  // Open Run (Win + R)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(800);
+
+  // Open PowerShell normally (visible)
+  DigiKeyboard.print("powershell");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1500);
+
+  
+  // Download file
+  DigiKeyboard.print("Invoke-WebRequest \"https://raw.githubusercontent.com/Bepositivebro/I-am-Good/main/Assets_yamete-kudasai%20(3).wav\" -OutFile \"$env:TEMP\\sound.wav\"");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(3000);
+
+  // Play file
+  DigiKeyboard.print("$sound = New-Object System.Media.SoundPlayer \"$env:TEMP\\sound.wav\"");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.print("$sound.PlaySync()");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+ 
+
+   //Delete after playback
+
+  DigiKeyboard.print("Remove-Item \"$env:TEMP\\sound.wav\" -Force");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+   for(;;){}  // Stop repeating
+
+ 
+
+}
