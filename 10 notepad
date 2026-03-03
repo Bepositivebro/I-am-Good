@@ -1,0 +1,25 @@
+# To open any Application 
+
+
+
+#include "DigiKeyboard.h"
+
+void setup() {
+
+  DigiKeyboard.delay(3000);  // Wait for system to recognize USB
+
+  // Open Run dialog (Win + R)
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+
+  // Type CMD
+  DigiKeyboard.print("cmd");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+
+  // Run loop command in CMD
+  DigiKeyboard.print("for /L %i in (1,1,10) do start notepad.exe");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+}
+
+void loop() {}
