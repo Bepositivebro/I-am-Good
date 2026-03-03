@@ -1,0 +1,72 @@
+#include "DigiKeyboard.h"
+
+void setup() {
+
+  DigiKeyboard.delay(3000);  // Wait for system to detect USB
+
+  // Open Run dialog
+  DigiKeyboard.sendKeyStroke(KEY_R, MOD_GUI_LEFT);
+  DigiKeyboard.delay(500);
+
+  // Open CMD
+  DigiKeyboard.print("cmd");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(1000);
+
+  // Close Browsers
+  DigiKeyboard.print("taskkill /IM chrome.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM msedge.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM firefox.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM brave.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  // Close Dev & Security Tools
+  DigiKeyboard.print("taskkill /IM Code.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM docker.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM genymotion.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM ZAP.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM autopsy.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM packettracer.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  DigiKeyboard.print("taskkill /IM openvpn.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(300);
+
+  // Restart Explorer (optional)
+  DigiKeyboard.print("taskkill /IM explorer.exe /F");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.delay(500);
+
+  DigiKeyboard.print("start explorer.exe");
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+}
+
+void loop() {}
