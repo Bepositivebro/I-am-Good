@@ -117,3 +117,17 @@ void loop() {
   DigiKeyboard.delay(5000);
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/MTK911/Attiny85/blob/master/payloads/KeyLogger/TimeBomb_KeyLogger.ino
